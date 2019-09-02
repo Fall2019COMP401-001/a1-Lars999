@@ -57,7 +57,7 @@ public class A1Adept {
 			
 		}
 		
-		String biggestName = "Janet Weiss";
+		String biggestName = "Ketan Mayer-Patel";
 		double biggestTotal = customerPrice[0];
 		for (int i=0; i<customerPrice.length; i++) {
 			if (customerPrice[i] > biggestTotal) {
