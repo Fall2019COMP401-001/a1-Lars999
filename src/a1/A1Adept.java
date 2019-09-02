@@ -10,16 +10,17 @@ public class A1Adept {
 		Scanner scan = new Scanner(System.in);
 		int numberOfItems = scan.nextInt();
 		double completeTotal = 0.0;
+		// double personalTotal = 0.0;
 		double total = 0.0;
-		Double max = 0.0;
-		Double min = 100.0;
+		double max = 0.0;
+		double min = 100000000.0;
 				
 		String[] priceName = new String[numberOfItems]; 
 		double[] prices = new double[numberOfItems];
 		for (int i=0; i<priceName.length; i++) {
 			String itemName = scan.next();
 			priceName[i] = itemName;
-			Double price = scan.nextDouble();
+			double price = scan.nextDouble();
 			prices[i] = price;
 		}
 			
@@ -34,6 +35,7 @@ public class A1Adept {
 				// System.out.println(customer[x]);
 				
 				total = 0.0;
+				double personalTotal = 0.0;
 			
 				// int count = scan.nextInt();
 				
@@ -45,43 +47,40 @@ public class A1Adept {
 					int count = scan.nextInt();
 					String name = scan.next();	
 					double itemPrice = findPrice(priceName, prices, name); 
-					total += count * itemPrice;
+					total = count * itemPrice;
+					personalTotal += total;
 					completeTotal += total;
-					customerPrice[a] += completeTotal;
-					
-					
-					
-		
+					customerPrice[a] = personalTotal;
 					
 				
 			}	
 			
 		}
 		
-		String biggestName = "";
-		double biggestTotal = 0.0;
+		String biggestName = "Janet Weiss";
+		double biggestTotal = customerPrice[0];
 		for (int i=0; i<customerPrice.length; i++) {
-			if (customerPrice[i] > max) {
+			if (customerPrice[i] > biggestTotal) {
 				biggestName = customer[i];
 				biggestTotal = customerPrice[i];
 			}
 		}
-		System.out.println("Biggest: " + biggestName +  " " + biggestTotal);
+		System.out.println("Biggest: " + biggestName +  " (" + String.format("%.2f", biggestTotal) + ")");
 		
 		String smallestName = "";
-		double smallestTotal = 0.0;
-		for (int i=0; i<customerPrice.length; i++) {
-			min = customerPrice[i];
-			if (customerPrice[i] < min) {
-				smallestName = customer[i];
-				smallestTotal = customerPrice[i];
+		double smallestTotal = customerPrice[0];
+		for (int j=0; j<customerPrice.length; j++) {
+			// min = customerPrice[i];
+			if (customerPrice[j] < smallestTotal) {
+				smallestName = customer[j];
+				smallestTotal = customerPrice[j];
 			
 			}
 		}
-		System.out.println("Smallest: " + smallestName + smallestTotal);
+		System.out.println("Smallest: " + smallestName + " (" + String.format("%.2f", smallestTotal) + ")");
 	
-		double avg = completeTotal / total;	
-		System.out.println("Average: " + avg);
+		double avg = completeTotal / cust;	
+		System.out.println("Average: " + String.format("%.2f", avg));
 		scan.close();
 	}
 	public static double findPrice(String[] priceName, double[] prices, String name) {
