@@ -24,7 +24,11 @@ public class A1Jedi {
 		int[] numOfCustomers = new int[numOfCust];
 		
 		String[] nameOfCustomers = new String[numOfItems];
+		boolean[] repeatItems = new boolean[numOfItems];
 		for (int i=0; i < numOfCustomers.length; i++) {
+			for (int y = 0; y < numOfItems; y++) {
+				repeatItems[y] = false;
+			}
 			String first = scan.next();
 			String last = scan.next();
 			nameOfCustomers[i] = first + " " + last;
@@ -33,9 +37,13 @@ public class A1Jedi {
 				int custNumOfItems = scan.nextInt();
 				String custNameOfItem = scan.next();
 				int indexPos = nameOfItem.indexOf(custNameOfItem);
-				customerCount[indexPos] += 1;
-				itemCount[indexPos] += custNumOfItems;
-				
+				if (repeatItems[indexPos] == false) {
+					repeatItems[indexPos] = true;
+					customerCount[indexPos] += 1;
+					itemCount[indexPos] += custNumOfItems;
+				} else {
+					itemCount[indexPos] += custNumOfItems;
+				}
 			}
 		}
 
@@ -43,7 +51,7 @@ public class A1Jedi {
 			if (itemCount[i] == 0) {
 				System.out.println("No customer bought " + nameOfItem.get(i));					
 			} else {
-			System.out.println(customerCount[i] + " customer bought " + itemCount[i] + " " + nameOfItem.get(i));
+			System.out.println(customerCount[i] + " customers bought " + itemCount[i] + " " + nameOfItem.get(i));
 			}
 		}
 		
