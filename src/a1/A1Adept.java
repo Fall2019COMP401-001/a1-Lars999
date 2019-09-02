@@ -57,15 +57,19 @@ public class A1Adept {
 			
 		}
 		
-		String biggestName = "Ketan Mayer-Patel";
-		double biggestTotal = customerPrice[0];
-		for (int i=0; i<customerPrice.length; i++) {
-			if (customerPrice[i] > biggestTotal) {
-				biggestName = customer[i];
-				biggestTotal = customerPrice[i];
+			String biggestName = "Janet Weiss";
+			double biggestTotal = customerPrice[0];
+			
+			for (int i=0; i<customerPrice.length; i++) {
+				if (customerPrice[i] > (biggestTotal)) {
+					biggestName = customer[i];
+					biggestTotal = customerPrice[i];
+					
+				}
+			 	// System.out.println(customer[i]);
 			}
-		}
-		System.out.println("Biggest: " + biggestName +  " (" + String.format("%.2f", biggestTotal) + ")");
+			System.out.println("Biggest: " + biggestName +  " (" + String.format("%.2f", biggestTotal) + ")");
+			
 		
 		String smallestName = "";
 		double smallestTotal = customerPrice[0];
@@ -78,6 +82,7 @@ public class A1Adept {
 			}
 		}
 		System.out.println("Smallest: " + smallestName + " (" + String.format("%.2f", smallestTotal) + ")");
+		
 	
 		double avg = completeTotal / cust;	
 		System.out.println("Average: " + String.format("%.2f", avg));
