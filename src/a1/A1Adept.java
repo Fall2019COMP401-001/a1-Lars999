@@ -12,8 +12,8 @@ public class A1Adept {
 		double completeTotal = 0.0;
 		// double personalTotal = 0.0;
 		double total = 0.0;
-		double max = 0.0;
-		double min = 100000000.0;
+		// double max = 0.0;
+		// double min = 100000000.0;
 				
 		String[] priceName = new String[numberOfItems]; 
 		double[] prices = new double[numberOfItems];
@@ -50,23 +50,25 @@ public class A1Adept {
 					total = count * itemPrice;
 					personalTotal += total;
 					completeTotal += total;
-					customerPrice[a] = personalTotal;
+					customerPrice[x] = personalTotal;
 					
 				
 			}	
 			
 		}
 		
-			String biggestName = "Janet Weiss";
+			String biggestName = "";
 			double biggestTotal = customerPrice[0];
+			biggestName = customer[0];
 			
 			for (int i=0; i<customerPrice.length; i++) {
-				if (customerPrice[i] > (biggestTotal)) {
+				if (customerPrice[i] > biggestTotal) {
 					biggestName = customer[i];
 					biggestTotal = customerPrice[i];
 					
+					
 				}
-			 	// System.out.println(customer[i]);
+			 	 // System.out.println(customer[i]);
 			}
 			System.out.println("Biggest: " + biggestName +  " (" + String.format("%.2f", biggestTotal) + ")");
 			
