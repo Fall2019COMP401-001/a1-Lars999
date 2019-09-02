@@ -77,7 +77,7 @@ public class A1Adept {
 		double smallestTotal = customerPrice[0];
 		for (int j=0; j<customerPrice.length; j++) {
 			// min = customerPrice[i];
-			if (customerPrice[j] < smallestTotal) {
+			if (customerPrice[j] <= smallestTotal) {
 				smallestName = customer[j];
 				smallestTotal = customerPrice[j];
 			
